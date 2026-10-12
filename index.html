@@ -1,0 +1,351 @@
+<!doctype html>
+<!--
+  Tavio – Datenschutz und Support auf einer Seite.
+
+  Vor dem Hochladen ersetzen (überall, auch in mailto-Links):
+    [Vor- und Nachname]
+    [Straße und Hausnummer]
+    [PLZ Ort]
+    [Land]
+    [E-Mail-Adresse]
+
+  Adressen für App Store Connect:
+    Datenschutzrichtlinie-URL:  https://…/#datenschutz
+    Support-URL:                https://…/#support
+
+  Die Seite lädt keine externen Schriften, Skripte oder Bilder.
+-->
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tavio – Datenschutz und Support</title>
+<meta name="description" content="Datenschutzerklärung, Hilfe und Kontakt für Tavio, die App für Wochenplan, Rezepte und Einkaufsliste.">
+<meta name="color-scheme" content="light dark">
+<style>
+  :root {
+    --bg: #F7F7F2;
+    --card: #FFFFFF;
+    --ink: #213F32;
+    --text: #2E3A33;
+    --secondary: #727B70;
+    --green: #285C45;
+    --deep: #234C3A;
+    --lime: #DBEBA9;
+    --line: #E6E9DF;
+    --sage: #E9EEDC;
+    --serif: "New York", ui-serif, Georgia, "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141C18;
+      --card: #202C25;
+      --ink: #E5EDE1;
+      --text: #D3DCD0;
+      --secondary: #ABB7A8;
+      --green: #B6D6A8;
+      --line: #354138;
+      --sage: #303E2B;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.6 var(--sans);
+  }
+  a { color: var(--green); text-underline-offset: 2px; }
+
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar-inner, main, footer { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+  .bar-inner { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 12px; }
+  .brand { font: 600 26px/1 var(--sans); letter-spacing: -1.2px; color: var(--ink); text-decoration: none; }
+  nav { display: flex; gap: 6px; }
+  nav a {
+    padding: 7px 14px; border-radius: 999px; text-decoration: none;
+    font-size: 15px; font-weight: 600; color: var(--ink); background: var(--card);
+    border: 1px solid var(--line);
+  }
+  nav a:hover { background: var(--sage); }
+
+  .hero { padding: 48px 0 8px; }
+  .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--secondary); margin: 0 0 10px; }
+  h1, h2 { font-family: var(--serif); font-weight: 500; color: var(--ink); letter-spacing: -0.5px; line-height: 1.12; }
+  h1 { font-size: clamp(36px, 8vw, 52px); margin: 0 0 12px; }
+  .lead { font-size: 19px; color: var(--secondary); margin: 0; }
+
+  section { padding-top: 40px; scroll-margin-top: 64px; }
+  section > h2 { font-size: clamp(30px, 6vw, 40px); margin: 0 0 6px; }
+  .meta { color: var(--secondary); font-size: 15px; margin: 0 0 24px; }
+  h3 { font-size: 19px; color: var(--ink); margin: 32px 0 8px; line-height: 1.3; }
+  p, ul { margin: 0 0 14px; }
+  ul { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  address { font-style: normal; }
+
+  .highlight {
+    background: var(--deep); color: #F2F6EC; border-radius: 24px; padding: 24px;
+    margin: 0 0 8px;
+  }
+  .highlight .eyebrow { color: var(--lime); margin-bottom: 8px; }
+  .highlight p { margin: 0; font-size: 18px; }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; }
+  .contact { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 8px; }
+  .contact p { margin: 0; }
+  .button {
+    display: inline-block; padding: 12px 20px; border-radius: 14px;
+    background: var(--lime); color: #234C3A; font-weight: 600; text-decoration: none; white-space: nowrap;
+  }
+  .button:hover { filter: brightness(0.96); }
+
+  .faq { display: grid; gap: 10px; margin-top: 16px; }
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 0 18px; }
+  summary {
+    cursor: pointer; list-style: none; padding: 16px 28px 16px 0; position: relative;
+    font-weight: 600; color: var(--ink);
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+"; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+    font-size: 22px; font-weight: 400; color: var(--green);
+  }
+  details[open] summary::after { content: "–"; }
+  details > *:not(summary) { margin-top: 0; }
+  details > :last-child { margin-bottom: 18px; }
+
+  .note { background: var(--sage); border-radius: 16px; padding: 14px 18px; }
+
+  footer {
+    margin-top: 56px; padding-top: 24px; padding-bottom: 40px;
+    border-top: 1px solid var(--line); color: var(--secondary); font-size: 15px;
+  }
+  footer p { margin: 0 0 6px; }
+  .tagline { font-family: var(--serif); color: var(--green); font-size: 18px; }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-inner">
+    <a class="brand" href="#top" aria-label="Tavio, zum Seitenanfang">tavio</a>
+    <nav aria-label="Seitenbereiche">
+      <a href="#datenschutz">Datenschutz</a>
+      <a href="#support">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <p class="eyebrow">Tavio</p>
+    <h1>Datenschutz und Support</h1>
+    <p class="lead">Die App für Wochenplan, Rezepte und Einkaufsliste. Hier steht, was mit deinen Daten passiert und wie du Hilfe bekommst.</p>
+  </div>
+
+  <!-- ============================ DATENSCHUTZ ============================ -->
+
+  <section id="datenschutz" aria-labelledby="datenschutz-titel">
+    <h2 id="datenschutz-titel">Datenschutzerklärung</h2>
+    <p class="meta">Stand: Oktober 2026</p>
+
+    <div class="highlight">
+      <p class="eyebrow">Kurz gesagt</p>
+      <p>Tavio braucht kein Konto, zeigt keine Werbung und verwendet keine Analyse- oder Tracking-Dienste. Deine Daten liegen auf deinem Gerät und, wenn du iCloud nutzt, in deinem iCloud-Konto bei Apple. Ich als Entwickler habe keinen Zugriff darauf.</p>
+    </div>
+
+    <h3>1. Verantwortlicher</h3>
+    <address>
+      [Vor- und Nachname]<br>
+      [Straße und Hausnummer]<br>
+      [PLZ Ort]<br>
+      [Land]<br>
+      E-Mail: <a href="mailto:[E-Mail-Adresse]">[E-Mail-Adresse]</a>
+    </address>
+
+    <h3>2. Welche Daten Tavio verarbeitet</h3>
+    <p>Tavio speichert, was du selbst in der App eingibst:</p>
+    <ul>
+      <li>Haushaltsprofil: Name des Haushalts, Personenanzahl, Kochzeit, Ernährungsweise, ausgeschlossene Zutaten sowie angelegte Personen mit Abneigungen und Unverträglichkeiten</li>
+      <li>Rezepte, Favoriten, Bewertungen und Fotos von Gerichten</li>
+      <li>Wochenplan, Einkaufsliste mit Notizen und Fotos, Vorräte</li>
+      <li>Anzeigenamen in einem gemeinsamen Haushalt, z. B. wer einen Artikel hinzugefügt hat</li>
+    </ul>
+    <p>Angaben zu Unverträglichkeiten können Gesundheitsdaten sein. Du gibst sie freiwillig ein. Tavio nutzt sie nur, um passende Gerichte auszublenden, und speichert sie wie alle anderen Daten nur auf deinem Gerät und in deiner iCloud.</p>
+    <p>Rechtsgrundlage ist die Bereitstellung der App-Funktionen, die du nutzen möchtest (Art. 6 Abs. 1 lit. b DSGVO), bei Gesundheitsdaten deine ausdrückliche Einwilligung durch die freiwillige Eingabe (Art. 9 Abs. 2 lit. a DSGVO). Du kannst diese Angaben jederzeit in der App ändern oder löschen.</p>
+
+    <h3>3. Speicherung auf deinem Gerät</h3>
+    <p>Alle Daten werden zunächst lokal auf deinem iPhone oder iPad gespeichert. Wenn du die App löschst, werden auch diese lokalen Daten gelöscht.</p>
+
+    <h3>4. Synchronisation über iCloud</h3>
+    <p>Wenn du auf deinem Gerät bei iCloud angemeldet bist, gleicht Tavio deine Daten über Apples Dienst CloudKit zwischen deinen Geräten ab. Die Daten liegen dabei in der privaten Datenbank deines iCloud-Kontos. Ich als Entwickler kann sie nicht einsehen.</p>
+    <p>Anbieter von iCloud ist Apple. Für die Verarbeitung gelten <a href="https://www.apple.com/de/legal/privacy/" rel="noopener">Apples Datenschutzrichtlinie</a> und die iCloud-Bedingungen. Du kannst iCloud für Tavio jederzeit in den iOS-Einstellungen unter „[Dein Name] &gt; iCloud“ ausschalten. Die App funktioniert dann nur lokal.</p>
+
+    <h3>5. Gemeinsamer Haushalt</h3>
+    <p>Du kannst andere Personen über die iCloud-Freigabe in deinen Haushalt einladen. Eingeladene Personen sehen und bearbeiten dann die Daten dieses Haushalts, also Profil, Personen, Rezepte, Wochenplan, Einkaufsliste und Vorräte. Die Teilnehmer verwaltest du über Apples Freigabe-Oberfläche. Du kannst die Freigabe jederzeit beenden oder einzelne Personen entfernen.</p>
+
+    <h3>6. Rezeptimport von Webseiten</h3>
+    <p>Wenn du einen Link zu einer Rezeptseite eingibst oder über „Teilen &gt; Tavio“ übergibst, ruft Tavio diese Seite und das zugehörige Foto direkt von der jeweiligen Website ab. Dabei erhält der Betreiber der Website wie bei jedem Seitenaufruf technische Daten, insbesondere deine IP-Adresse. Dafür gilt die Datenschutzerklärung der jeweiligen Website. Tavio nutzt dafür keinen eigenen Server und keinen weiteren Dienst.</p>
+    <p>Die Teilen-Erweiterung speichert nur den Link, bis du Tavio das nächste Mal öffnest.</p>
+
+    <h3>7. Texterkennung in Fotos, PDFs und Texten</h3>
+    <p>Wenn du Rezepte aus Fotos, Screenshots, PDF-Dateien oder Text importierst, erkennt Tavio den Inhalt direkt auf deinem Gerät (Apple Vision, PDFKit und auf unterstützten Geräten Apples Sprachmodell auf dem Gerät). Dabei werden keine Inhalte an mich oder an Dritte übertragen.</p>
+
+    <h3>8. Zugriff auf Fotos</h3>
+    <p>Fotos wählst du über die Fotoauswahl von iOS aus. Tavio erhält nur die Bilder, die du auswählst, und keinen Zugriff auf deine übrige Mediathek.</p>
+
+    <h3>9. Mitteilungen</h3>
+    <p>Tavio kann dich benachrichtigen, wenn jemand in einem gemeinsamen Haushalt neue Artikel auf die Einkaufsliste setzt. Diese Mitteilungen sind freiwillig. Sie laufen über CloudKit und den Push-Dienst von Apple. Du kannst sie in der App oder in den iOS-Einstellungen jederzeit abschalten.</p>
+    <p>Kochtimer und Live Activities auf dem Sperrbildschirm werden nur auf deinem Gerät erzeugt.</p>
+
+    <h3>10. Siri und Kurzbefehle</h3>
+    <p>Wenn du Artikel mit Siri hinzufügst („Einkaufen mit Tavio“), verarbeitet Apple deine Spracheingabe nach deinen Siri-Einstellungen und Apples Datenschutzrichtlinie. Tavio erhält nur den erkannten Artikel.</p>
+
+    <h3>11. Absturzberichte</h3>
+    <p>Wenn du in den iOS-Einstellungen unter „Datenschutz &amp; Sicherheit &gt; Analyse &amp; Verbesserungen“ der Option „Mit App-Entwicklern teilen“ zugestimmt hast, stellt Apple mir anonymisierte Absturzberichte und Nutzungsstatistiken zur Verfügung. Daraus kann ich dich nicht identifizieren. Du kannst diese Freigabe jederzeit in den iOS-Einstellungen ändern.</p>
+
+    <h3>12. Kontakt per E-Mail</h3>
+    <p>Wenn du mir eine E-Mail schreibst, verarbeite ich deine E-Mail-Adresse und den Inhalt deiner Nachricht, um deine Anfrage zu beantworten (Art. 6 Abs. 1 lit. b und f DSGVO). Ich lösche die Nachricht, sobald sie erledigt ist und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
+
+    <h3>13. Keine Werbung, kein Tracking</h3>
+    <p>Tavio enthält keine Werbung, keine Analyse-Tools und keine Software von Drittanbietern, die dein Verhalten auswertet. Tavio verwendet keine Werbe-ID und verfolgt dich nicht über andere Apps oder Websites. Auch diese Website lädt keine externen Inhalte und setzt keine Cookies.</p>
+
+    <h3>14. Daten löschen</h3>
+    <ul>
+      <li><strong>Auf dem Gerät:</strong> App löschen.</li>
+      <li><strong>In iCloud:</strong> iOS-Einstellungen &gt; [Dein Name] &gt; iCloud &gt; Speicher verwalten &gt; Tavio &gt; Daten löschen.</li>
+      <li><strong>Gemeinsamer Haushalt:</strong> Als Besitzer beendest du die Freigabe in Tavio unter „Euer Haushalt &gt; Freigabe verwalten“. Daten, die du in einem fremden Haushalt eingetragen hast, gehören zu diesem Haushalt und bleiben dort, bis der Besitzer sie löscht.</li>
+    </ul>
+
+    <h3>15. Deine Rechte</h3>
+    <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch (Art. 15 bis 21 DSGVO). Eine Einwilligung kannst du jederzeit widerrufen. Da ich keine Daten aus der App erhalte, kannst du die meisten dieser Rechte direkt in der App oder in deinen iCloud-Einstellungen ausüben. Für alle Fragen erreichst du mich unter <a href="mailto:[E-Mail-Adresse]">[E-Mail-Adresse]</a>.</p>
+    <p>Du hast außerdem das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, zum Beispiel bei der Behörde deines Wohnorts.</p>
+
+    <h3>16. Kinder</h3>
+    <p>Tavio richtet sich nicht gezielt an Kinder und erhebt wissentlich keine Daten von Kindern.</p>
+
+    <h3>17. Änderungen</h3>
+    <p>Wenn sich die App oder die rechtlichen Vorgaben ändern, passe ich diese Datenschutzerklärung an. Es gilt die jeweils hier veröffentlichte Fassung.</p>
+  </section>
+
+  <!-- ============================== SUPPORT ============================== -->
+
+  <section id="support" aria-labelledby="support-titel">
+    <h2 id="support-titel">Hilfe und Kontakt</h2>
+    <p class="meta">Fragen, Fehler oder Ideen für Tavio</p>
+
+    <div class="card contact">
+      <p>Schreib mir. Ich antworte in der Regel innerhalb weniger Tage.</p>
+      <a class="button" href="mailto:[E-Mail-Adresse]?subject=Tavio">E-Mail schreiben</a>
+    </div>
+    <p>Hilfreich sind dabei: Gerät, iOS-Version und Tavio-Version (zu finden unter „Euer Haushalt &gt; Über Tavio“) sowie eine kurze Beschreibung, was du getan hast und was passiert ist. Ein Screenshot hilft oft am meisten.</p>
+
+    <h3>Häufige Fragen</h3>
+    <div class="faq">
+
+      <details>
+        <summary>Wie plane ich meine Woche?</summary>
+        <p>Unter <strong>Woche</strong> auf <strong>Vorschlagen</strong> tippen. Tavio füllt die offenen Abende mit passenden Gerichten. Einzelne Tage kannst du neu würfeln, verschieben, tauschen oder durch ein anderes Gericht ersetzen. Für Frühstück oder Mittagessen einen Tag gedrückt halten oder beim Einplanen die Mahlzeit wählen.</p>
+      </details>
+
+      <details>
+        <summary>Woher kommt die Einkaufsliste?</summary>
+        <p>Tavio berechnet sie aus deinem Wochenplan, passend zu den Portionen, und zieht ab, was schon im Vorrat ist. Eigene Artikel trägst du oben oder unten im Eingabefeld ein. Ein Häkchen übernimmt den Einkauf in deine Vorräte. <strong>Rückgängig</strong> nimmt ihn wieder zurück.</p>
+      </details>
+
+      <details>
+        <summary>Wie importiere ich ein Rezept?</summary>
+        <p>Unter <strong>Gerichte</strong> auf das Importsymbol neben dem <strong>+</strong> tippen. Du kannst einen Link einfügen, bis zu zehn Fotos oder Screenshots auswählen, eine PDF-, Bild- oder Textdatei öffnen oder Text einfügen. Aus Safari geht es auch direkt über <strong>Teilen &gt; Tavio</strong>. Vor dem Speichern prüfst du den Entwurf. Unklare Mengen sind markiert.</p>
+        <p>Handschriftliche, schlecht lesbare oder sehr verschachtelte Vorlagen brauchen manchmal Korrekturen. Ein Foto nur vom fertigen Essen enthält kein Rezept.</p>
+      </details>
+
+      <details>
+        <summary>Wie teile ich meinen Haushalt?</summary>
+        <p>Oben rechts auf das Haushaltssymbol tippen, dann <strong>Zum Haushalt einladen</strong>. Die Einladung verschickst du über Nachrichten, Mail oder einen Link. Alle Beteiligten brauchen Tavio und müssen bei iCloud angemeldet sein.</p>
+      </details>
+
+      <details>
+        <summary>Die eingeladene Person sieht weiterhin „Dein Haushalt“</summary>
+        <ul>
+          <li>Den Einladungslink auf dem eingeladenen Gerät erneut öffnen und den Beitritt bestätigen.</li>
+          <li>Oder im Haushaltsdialog unter <strong>Haushalt wechseln</strong> den gemeinsamen Haushalt auswählen.</li>
+          <li>Beide Geräte sollten die aktuelle Tavio-Version verwenden.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Meine Daten werden nicht abgeglichen</summary>
+        <ol>
+          <li>Prüfe, ob du in den iOS-Einstellungen bei iCloud angemeldet bist und iCloud für Tavio eingeschaltet ist.</li>
+          <li>Prüfe die Internetverbindung. Änderungen ohne Verbindung bleiben gespeichert und werden später übertragen.</li>
+          <li>Im Haushaltsdialog auf <strong>Jetzt synchronisieren</strong> tippen.</li>
+          <li>Ist dein iCloud-Speicher voll, kann Tavio keine Änderungen hochladen.</li>
+        </ol>
+      </details>
+
+      <details>
+        <summary>Wie bekomme ich Mitteilungen über neue Artikel?</summary>
+        <p>Unter <strong>Einkauf &gt; … &gt; Einkaufseinstellungen</strong> die Option <strong>Neue Artikel melden</strong> einschalten und die Abfrage von iOS bestätigen. Mehrere Artikel kurz hintereinander werden in einer Mitteilung gebündelt.</p>
+      </details>
+
+      <details>
+        <summary>Wie nutze ich Siri?</summary>
+        <p>Sag <strong>„Einkaufen mit Tavio“</strong>, dann fragt Siri nach dem Artikel. Die Aktion findest du auch in der Kurzbefehle-App. Öffne Tavio nach der Installation einmal, damit Siri den richtigen Haushalt kennt.</p>
+      </details>
+
+      <details>
+        <summary>Der Kochtimer erscheint nicht auf dem Sperrbildschirm</summary>
+        <p>Prüfe in den iOS-Einstellungen unter <strong>Tavio</strong>, ob <strong>Live-Aktivitäten</strong> und <strong>Mitteilungen</strong> erlaubt sind.</p>
+      </details>
+
+      <details>
+        <summary>Ein Vorrat stimmt nicht</summary>
+        <p>Unter <strong>Vorräte</strong> die Zutat antippen und die Menge korrigieren. Zum Löschen die Zeile nach links wischen. Die Einkaufsliste passt sich automatisch an.</p>
+        <p>Tipp: Ältere Gerichte als gekocht oder ausgelassen markieren, sonst hält Tavio Vorräte dafür zurück.</p>
+      </details>
+
+      <details>
+        <summary>Kann ich mich bei Allergien auf Tavio verlassen?</summary>
+        <p>Tavio blendet Gerichte aus, deren Name oder Zutaten zu den hinterlegten Abneigungen und Unverträglichkeiten passen. Das ersetzt keine eigene Prüfung.</p>
+        <p class="note">Bitte kontrolliere bei Allergien immer die Zutaten und Verpackungsangaben selbst.</p>
+      </details>
+
+      <details>
+        <summary>Tavio zeigt „Gespeicherte Daten öffnen“</summary>
+        <p>Tavio konnte deine gespeicherte Datei nicht lesen und hat zu deinem Schutz nichts überschrieben. Tippe auf <strong>Erneut laden</strong>. Klappt das nicht, sichere die Datei über <strong>Originaldatei sichern</strong> in der Dateien-App und schick mir die <strong>Fehlerdetails</strong> per E-Mail.</p>
+        <p class="note">Lösche die App in diesem Fall nicht, sonst gehen lokale Änderungen verloren.</p>
+      </details>
+
+      <details>
+        <summary>Was kostet Tavio?</summary>
+        <p>Nichts. Tavio ist kostenlos, ohne Werbung und ohne Abo.</p>
+      </details>
+
+      <details>
+        <summary>Wie lösche ich meine Daten?</summary>
+        <p>App vom Gerät löschen. Daten in iCloud löschst du in den iOS-Einstellungen unter <strong>[Dein Name] &gt; iCloud &gt; Speicher verwalten &gt; Tavio</strong>. Mehr dazu in der <a href="#datenschutz">Datenschutzerklärung</a>.</p>
+      </details>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="tagline">Weniger planen. Mehr genießen.</p>
+  <p><a href="#datenschutz">Datenschutz</a> · <a href="#support">Support</a> · <a href="mailto:[E-Mail-Adresse]">Kontakt</a></p>
+  <p>© 2026 [Vor- und Nachname]</p>
+</footer>
+
+</body>
+</html>
